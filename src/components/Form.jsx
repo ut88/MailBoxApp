@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { useRef,useState } from "react";
-const Form1=()=>{
+const Form1=(props)=>{
  const [login,setlogin]=useState(false); 
  const email=useRef();
  const password=useRef();
@@ -15,8 +15,6 @@ const Form1=()=>{
   }else{
     url="https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBqtH4RacoWhFJya3pU4TthNl2mJAo1PNQ"  
   }
-  console.log(password)
-  console.log(email)
   try{
    const response =await fetch(url,
     {
@@ -29,7 +27,9 @@ const Form1=()=>{
     headers:{"Content-Type": "application/json",}
    })
    const result=await response.json();
-   console.log(result)
+   console.log(result.idToken)
+   localStorage.setItem("Token",result.idToken)
+   props.setLogin(true)
   }catch(err){
    alert(err)
   }
@@ -39,7 +39,7 @@ const Form1=()=>{
   return(<>
      <div style={{margin:"4px"}}>
         <h1 style={{textAlign:"center"}}>
-            Login
+        📧Login
         </h1>
      </div>
      <Form  style={{border:"5px solid blue" }} onSubmit={submitHandler}>
@@ -52,7 +52,7 @@ const Form1=()=>{
     </Form.Group>
     <Form.Group className="mb-3" controlId="formBasicPassword">
       <Form.Label>Password</Form.Label>
-      <Form.Control type="password" placeholder="Password" required />
+      <Form.Control type="password" placeholder="Password" ref={password} required />
     </Form.Group>
     <Form.Group className="mb-3" controlId="ConfirmPassword">
       <Form.Label>Confirm Password</Form.Label>
