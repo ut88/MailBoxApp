@@ -1,7 +1,10 @@
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { useRef,useState } from "react";
-const Form1=(props)=>{
+import {useDispatch} from "react-redux";
+import { LoginActions } from "./store/login";
+const Form1=()=>{
+  const dispatch=useDispatch(LoginActions)
  const [login,setlogin]=useState(false); 
  const email=useRef();
  const password=useRef();
@@ -29,12 +32,14 @@ const Form1=(props)=>{
    const result=await response.json();
    console.log(result.idToken)
    localStorage.setItem("Token",result.idToken)
-   props.setLogin(true)
+   localStorage.setItem("UserEmail",email1.replace('@','').replace('.',''))
+   email.current.value="";
+   password.current.value="";
+   dispatch(LoginActions.toggle())
   }catch(err){
    alert(err)
   }
-   email.current.value="";
-  password.current.value="";
+
  }
   return(<>
      <div style={{margin:"4px"}}>

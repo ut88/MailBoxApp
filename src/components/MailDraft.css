@@ -1,0 +1,18 @@
+.form1{
+    display:inline; 
+}
+.form1 input{
+   border: none;
+   outline:none;
+   border-bottom:2px solid black ;
+   width: 83.7vw;
+}
+
+.form1 textarea{
+    border:none;
+    outline:none;
+    border-bottom:2px solid black ;
+    display: block; 
+    width: 83.7vw; 
+    height: 72vh;
+}

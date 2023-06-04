@@ -1,0 +1,40 @@
+.mail li{
+    float: right;
+    width: 83.9vw;
+    height: 5vh;
+    list-style-type:none;
+    outline: none;
+    border: none;
+    
+    background-color: rgb(239, 239, 225);
+}
+.btn1{
+  float: left;
+  height: 5vh;
+  width:82vw ;
+  outline: none;
+  border: none;
+  border-bottom: .3vh solid black;
+}
+.text1{
+   float: left;
+}
+.text2{
+    float: center;
+}
+.btn1:hover{
+    transform: scale(1.005);
+    outline:auto;
+    border: auto;
+}
+.btn2{
+  float: right;
+  height: 5vh;
+  width: 1.9vw;
+  outline: none;
+  border: none;
+  border-bottom: .3vh solid black;
+}
+.btn2:hover{
+background-color: rgb(226, 148, 148);
+}

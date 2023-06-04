@@ -1,0 +1,68 @@
+.main{
+    background-color: antiquewhite;
+    border-bottom:4px solidlightgrey  ;
+    min-height:7vh;
+    position: relative;
+}
+.btnlog{
+    margin:0.6%;
+    max-height:5vh;
+    width:2wv;
+    position: absolute;
+    right: .5%;
+    top:0%;
+    height:7vh;
+    border-radius: 16px;
+    color: solidlightgrey ;
+    border: 3px solid white;
+    
+}
+.btnlog:hover{
+    background-color: rgb(194, 151, 151);
+}
+.sideblock{
+   border-right: 4px solid blue; 
+   background-color: lightblue;
+   min-height: 95vh;
+   width:15vw ;
+   float:left;
+}
+.sidediv{
+    float: right;
+    height: 95vh;
+    width:83.9vw;
+    background-color: beige;
+}
+.button1{
+  width:8vw;
+  height:6vh;
+  margin-left: 3vw;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
+  border-radius: 16px;
+  outline: none;
+  border: none;
+  font-size:inherit;
+  background-image: radial-gradient( rgb(0, 0, 136) ,rgb(43, 185, 242));
+  box-shadow: 3pc;
+  color: white;
+}
+
+.button1:hover{
+    transform: scale(1.2); 
+}
+
+.buttons button{
+     width: 14vw;
+     height:6vh;
+     margin-left: .4vw;
+     outline: none;
+     border: none;
+     border-bottom: .5vh solid rgb(43, 185, 242);
+     background-image: radial-gradient(rgb(43, 185, 242), rgb(0, 0, 136) );
+     font-size:1.5vw;
+     font-weight: bolder;
+}
+.buttons button:hover{
+    transform: scale(1.09); 
+}
