@@ -10,7 +10,7 @@ const dispatch=useDispatch(composeActions);
  const dispatch2=useDispatch(OutboxActions);
  const [data,setData]=useState([]);
  const DeleteHandler=async(item)=>{
-    await fetch(`https://mail-box-86f51-default-rtdb.firebaseio.com/${item.email}/${item.id}.json`,{
+    await fetch(`https://mail-box-86f51-default-rtdb.firebaseio.com/${item.email}/outbox/${item.id}.json`,{
       method:'DELETE',
       headers:{
           "Content-Type": "application/json"
@@ -23,7 +23,7 @@ const dispatch=useDispatch(composeActions);
  }
     useEffect(()=>{
         let fetchData=async()=>{
-            const response= await fetch(`https://mail-box-86f51-default-rtdb.firebaseio.com/${localStorage.getItem("SentEmail")}.json`)
+            const response= await fetch(`https://mail-box-86f51-default-rtdb.firebaseio.com/${localStorage.getItem("UserEmail")}/outbox.json`)
             const result=await response.json();
             console.log(result)
             if(result){
@@ -42,13 +42,13 @@ const dispatch=useDispatch(composeActions);
    }
  return(<ul className="mail">
      {data.map((item)=>{
+     let email= (item.email)?item.email.replace('gmailcom','@gmail.com'):""
         return(<li key={item.id}>
             <button className="btn1" onClick={OpenHandler}>
-                <span className="text1">To: {item.email.replace('gmailcom','@gmail.com')}</span>
+                <span className="text1">To: {email}</span>
                 <span className="text2">(Subject) {item.subject}</span>
             </button>
         <button className="btn2" onClick={()=>{DeleteHandler(item)}}>X</button>
-
       </li>)
      })}
  </ul>)

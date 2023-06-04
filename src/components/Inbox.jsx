@@ -23,7 +23,7 @@ const Inbox=()=>{
  }
     useEffect(()=>{
         let fetchData=async()=>{
-            const response= await fetch(`https://mail-box-86f51-default-rtdb.firebaseio.com/${localStorage.getItem("UserEmail")}.json`)
+            const response= await fetch(`https://mail-box-86f51-default-rtdb.firebaseio.com/${localStorage.getItem("UserEmail")}/inbox.json`)
             const result=await response.json();  
             if(result){
             const newArray=Object.keys(result).map((key)=>{
@@ -41,13 +41,13 @@ const Inbox=()=>{
    }
  return(<ul className="mail">
      {data.map((item)=>{
+     let email= (item.email)?item.email.replace('gmailcom','@gmail.com'):""
         return(<li key={item.id}>
             <button className="btn1" onClick={OpenHandler}>
-                <span className="text1">From: {item.email.replace('gmailcom','@gmail.com')}</span>
+                <span className="text1">To: {email}</span>
                 <span className="text2">(Subject) {item.subject}</span>
             </button>
         <button className="btn2" onClick={()=>{DeleteHandler(item)}}>X</button>
-
       </li>)
      })}
  </ul>)

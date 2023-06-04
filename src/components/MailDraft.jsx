@@ -12,9 +12,15 @@ const MailDraft=()=>{
       subject:subject.current.value,
       text:text.current.value,
      }
-     localStorage.setItem("SentEmail",obj.email)
-     console.log(obj.email)
-      await fetch(`https://mail-box-86f51-default-rtdb.firebaseio.com/${obj.email}.json`,
+      await fetch(`https://mail-box-86f51-default-rtdb.firebaseio.com/${obj.email}/inbox.json`,
+     {
+      method:"POST",
+      body:JSON.stringify(obj),
+      headers:{
+         "Content-Type": "application/json",
+      }
+     })
+     await fetch(`https://mail-box-86f51-default-rtdb.firebaseio.com/${localStorage.getItem("UserEmail")}/outbox.json`,
      {
       method:"POST",
       body:JSON.stringify(obj),

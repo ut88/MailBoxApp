@@ -32,7 +32,7 @@ const Form1=()=>{
    const result=await response.json();
    console.log(result.idToken)
    localStorage.setItem("Token",result.idToken)
-   localStorage.setItem("UserEmail",email1.replace('@','').replace('.',''))
+   localStorage.setItem("UserEmail",email1.replace(/[.@]/g, ""))
    email.current.value="";
    password.current.value="";
    dispatch(LoginActions.toggle())

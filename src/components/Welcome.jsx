@@ -33,7 +33,6 @@ const Welcome=()=>{
  const logoutHandler=()=>{
    dispatch3(LoginActions.toggle())
    localStorage.removeItem("Token")
-   localStorage.removeItem("SentEmail")
    localStorage.removeItem("UserEmail")
  }
   return(

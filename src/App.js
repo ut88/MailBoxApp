@@ -3,10 +3,9 @@ import './App.css';
 import Form1 from './components/Form';
 import Welcome from './components/Welcome';
 import {useSelector} from "react-redux";
-
-
 function App() {
   const login=useSelector(state=>state.login.status)
+  console.log(login);
   return (
     <div>
       {!login && <Form1 />}
