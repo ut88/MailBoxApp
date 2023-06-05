@@ -42,7 +42,7 @@ const OutBox = () => {
         });
         setData(newArray);
       }
-    }, 2000);
+    }, 1000);
   }, []);
   const OpenHandler = async (item) => {
     try {

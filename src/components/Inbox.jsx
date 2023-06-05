@@ -29,7 +29,7 @@ const Inbox = () => {
     setData([...remainData]);
   };
   useEffect(() => {
-    setInterval(async () => {
+    setInterval(async() => {
       const response = await fetch(
         `https://mail-box-86f51-default-rtdb.firebaseio.com/${localStorage.getItem(
           "UserEmail"
@@ -42,7 +42,7 @@ const Inbox = () => {
         });
         setData(newArray);
       }
-    }, 2000);
+    }, 1000);
   }, []);
   const OpenHandler = async (item) => {
     try {

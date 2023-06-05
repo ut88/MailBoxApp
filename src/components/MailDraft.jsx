@@ -23,8 +23,9 @@ const MailDraft = () => {
       text: text.current.value,
       visible: "unread",
     };
+    let input=obj.email.replace(/[.@]/g, "")
     await fetch(
-      `https://mail-box-86f51-default-rtdb.firebaseio.com/${obj.email}/inbox.json`,
+      `https://mail-box-86f51-default-rtdb.firebaseio.com/${input}/inbox.json`,
       {
         method: "POST",
         body: JSON.stringify(obj),
