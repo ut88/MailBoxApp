@@ -42,7 +42,7 @@ const Form1 = () => {
     }
   };
   return (
-    <>
+    <div style={{backgroundColor: "lightblue" ,height:"100vh"}}>
       <div style={{ margin: "4px" }}>
         <h1 style={{ textAlign: "center" }}>📧Login</h1>
       </div>
@@ -50,6 +50,7 @@ const Form1 = () => {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
+            style={{backgroundColor: "antiquewhite"}}
             type="email"
             placeholder="Enter email"
             ref={email}
@@ -62,6 +63,7 @@ const Form1 = () => {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
+          style={{backgroundColor: "antiquewhite"}}
             type="password"
             placeholder="Password"
             ref={password}
@@ -71,6 +73,7 @@ const Form1 = () => {
         <Form.Group className="mb-3" controlId="ConfirmPassword">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
+          style={{backgroundColor: "antiquewhite"}}
             type="password"
             placeholder="Password"
             ref={password}
@@ -89,7 +92,7 @@ const Form1 = () => {
           {login ? "Create New Account" : "Have a Existing Account"}
         </Button>
       </Form>
-    </>
+    </div>
   );
 };
 
