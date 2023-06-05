@@ -1,16 +1,27 @@
 import { Button } from "react-bootstrap";
 import "./MailDraft.css";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 const MailDraft=()=>{
-   const email=useRef();
-   const subject=useRef();
-   const text=useRef();
+   let email=useRef();
+   let subject=useRef();
+   let text=useRef();
+   const sendEmail=useSelector(state=>state.emaildata.email)
+   useEffect(()=>{
+      if(sendEmail.email){
+         email.current.value=sendEmail.email;
+         subject.current.value=sendEmail.subject;
+         text.current.value=sendEmail.text;
+     }
+   },[sendEmail])
+ 
    const submitHandler=async(e)=>{
      e.preventDefault();
-     const obj={
-      email:email.current.value.replace('@','').replace('.',''),
+     let obj={
+      email:email.current.value,
       subject:subject.current.value,
       text:text.current.value,
+      visible:"unread",
      }
       await fetch(`https://mail-box-86f51-default-rtdb.firebaseio.com/${obj.email}/inbox.json`,
      {
